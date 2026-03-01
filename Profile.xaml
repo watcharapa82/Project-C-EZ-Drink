@@ -1,0 +1,208 @@
+﻿<Window x:Class="EZTicketProject.Profile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EZTicketProject"
+        mc:Ignorable="d"
+        Title="Profile" Height="500" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+
+    <Border Background="White" CornerRadius="30" MouseDown="Bordor_MouseDown" MouseLeftButtonDown="Bordor_MouseLeftButtonDown">
+        <Grid Margin="-7,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="195"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+
+            <Border Background="#FD8A8A" CornerRadius="0 50 0 30" Margin="7,80,0,0">
+                <DockPanel>
+                    <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="50 -40 0 0">
+                        <Ellipse>
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Images/Profile.png"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Border>
+
+                    <Separator Margin="20 35" DockPanel.Dock="Top" Height="2" Background="#FFFFFF"/>
+
+                    <Canvas DockPanel.Dock="Top" Height="119">
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnMain_Click" Height="30" Canvas.Top="-117" Canvas.Left="10" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="หน้าแรก" FontFamily="Tahoma Bold" Width="66"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnCart_Click" Height="30" Canvas.Top="-41" Canvas.Left="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="GlassWine" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="ตะกร้าสินค้า" FontFamily="Tahoma Bold" Width="104"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnFavorites_Click" Height="30" Canvas.Left="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153" Canvas.Top="-2">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Heart" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="รายการโปรด" FontFamily="Tahoma Bold" Width="104"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnOrganizer_Click" Height="30" Canvas.Top="40" Canvas.Left="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="BottleWineOutline" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="จัดการสินค้า" FontFamily="Tahoma Bold" Width="104"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="btnAdminMenu" Style="{StaticResource ResourceKey=menuButton}" Height="30" Canvas.Top="79" Click="BtnAdminMenu_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="146" Canvas.Left="10" >
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Toolbox" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="สำหรับ Admin" FontFamily="Tahoma Bold" Width="93"/>
+                            </StackPanel>
+                        </Button>
+
+                        <StackPanel x:Name="AdminSubMenuContainer" Background="White" Visibility="Collapsed" Margin="0,0,0,0" HorizontalAlignment="Stretch">
+                            <Button Content="Dashboard Member" Click="BtnDashboardMember_Click" Height="40" Margin="10,5,10,0"/>
+                            <Button Content="Dashboard Sales" Click="BtnDashboardSales_Click" Height="40" Margin="10,0,10,5"/>
+                            <Button Content="Confirm Orders" Click="BtnConfirmOrders_Click" Height="40" Margin="10,-5,10,10"/>
+                        </StackPanel>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnProfile_Click" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="9" Width="137" Canvas.Top="-79">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Account" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="ข้อมูลส่วนตัว" FontFamily="Tahoma Bold" Width="83"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnAboutus_Click" Height="30" Canvas.Top="123" Canvas.Left="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Creation" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="เกี่ยวกับเรา" FontFamily="Tahoma Bold" Width="104"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnCloss_Click" Height="30" Canvas.Top="167" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="8">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="ออกจากระบบ" FontFamily="Tahoma Bold" Width="83"/>
+                            </StackPanel>
+                        </Button>
+                    </Canvas>
+                </DockPanel>
+            </Border>
+            <TextBlock Text="EZDrink" Foreground="White" FontSize="22" FontWeight="DemiBold" DockPanel.Dock="Top" TextAlignment="Center" Margin="56,123,55,346"/>
+
+            <Grid Grid.Column="1" Margin="20,20,20,0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Image Source="/Images/close.png"  MouseUp="Image_MouseUp" Style="{StaticResource imgClose}" Margin="0,1,1,0"/>
+                <Border Background="Transparent" Cursor="Hand" MouseUp="btnBack_MouseUp" Height="40" Width="40" CornerRadius="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-194,-5,0,0">
+                    <Image Source="/Images/Back.png" Height="30" Width="30" Margin="5,5,5,5"/>
+                </Border>
+                <StackPanel Orientation="Horizontal" Margin="20,10,42,0" VerticalAlignment="Top" Grid.RowSpan="2">
+
+                    <Border Width="100" Height="128" CornerRadius="50">
+                        <Image x:Name="imgProfile" Stretch="UniformToFill"/>
+                    </Border>
+
+                    <StackPanel VerticalAlignment="Center" Width="142" Margin="10 0">
+                        <TextBlock Text="ชื่อผู้ใช้:" FontSize="14" Foreground="Gray"/>
+                        <TextBlock x:Name="txtUserName" FontSize="18" FontWeight="Bold"/>
+
+                        <TextBlock Text="เบอร์โทร:" FontSize="14" Foreground="Gray"/>
+                        <TextBlock x:Name="txtPhone" FontSize="16"/>
+
+                        <TextBlock Text="สถานะผู้ใช้:" FontSize="14" Foreground="Gray"/>
+                        <TextBlock x:Name="txtRole" FontSize="16"/>
+
+                        <TextBlock Text="เพศ:" FontSize="14" Foreground="Gray"/>
+                        <TextBlock x:Name="txtSex" FontSize="16"/>
+
+                        <TextBlock Text="อายุ:" FontSize="14" Foreground="Gray"/>
+                        <TextBlock x:Name="txtAge" FontSize="16"/>
+
+                    </StackPanel>
+
+                </StackPanel>
+
+                <TextBlock Text="คำสั่งซื้อของฉัน" Style="{StaticResource normalText2}"
+               FontSize="18" FontWeight="SemiBold"
+               Margin="20,10,0,229"
+               Grid.Row="2"/>
+
+                <DataGrid x:Name="dgOrders"
+              Grid.Row="2"
+              AutoGenerateColumns="True"
+              SelectionChanged="dgOrders_SelectionChanged"
+              Margin="0,7,302,10"
+              Background="#FFF"
+              RowHeaderWidth="0"
+              AlternatingRowBackground="#FFF6F6"/>
+
+                <DataGrid x:Name="dgOrderItems"
+          AutoGenerateColumns="False"
+          CanUserAddRows="False"
+          IsReadOnly="True"
+          Margin="275,7,0,10" Grid.Row="2">
+
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="สินค้า" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ProductName}" TextWrapping="Wrap" LineStackingStrategy="BlockLineHeight" LineHeight="18" Height="36" VerticalAlignment="Center" Margin="3,0"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="จำนวน" Binding="{Binding Quantity}" Width="Auto"/>
+                        <DataGridTextColumn Header="ราคา (บาท)" Width="Auto"
+                    ElementStyle="{StaticResource RightAlignedDataGridCell}">
+                            <DataGridTextColumn.Binding>
+                                <Binding Path="Price" StringFormat="{}{0:N2}" />
+                            </DataGridTextColumn.Binding>
+                        </DataGridTextColumn>
+
+                    </DataGrid.Columns>
+
+                </DataGrid>
+
+
+                <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+
+                    <Button x:Name="btnReOrder"
+                Content="สินค้าถูกยกเลิก"
+                Visibility="Collapsed"
+                Click="BtnReOrder_Click"
+                Width="150" Height="35" Margin="5"
+                Background="#FF8A8A"/>
+
+                    <Button x:Name="btnReUploadSlip" Content="กรุณาอัพโหลดสลิปใหม่" Visibility="Collapsed" Click="BtnReOrder_Click" Width="150" Height="35" Margin="5" Background="Yellow"/>
+
+                    <Button x:Name="btnDownloadPDF"
+                Content="ดาวน์โหลดใบเสร็จ (PDF)"
+                Visibility="Collapsed"
+                Click="BtnDownloadPDF_Click"
+                Width="180" Height="35" Margin="5"
+                Background="#8AD88A"/>
+                </StackPanel>
+
+            </Grid>
+
+
+
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,131 @@
+﻿<Window x:Class="EZTicketProject.AboutusWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EZTicketProject"
+        mc:Ignorable="d"
+        Title="AboutusWindow" Height="500" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+
+    <Border Background="Transparent" CornerRadius="30" MouseLeftButtonDown="Bordor_MouseLeftButtondown">
+        <Grid Margin="-7,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="195"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+
+            <Border CornerRadius="30 30 30 30" Grid.ColumnSpan="3" Margin="7,0,0,0">
+                <Border.Background>
+                    <ImageBrush ImageSource="/Images/Background.png" Stretch="UniformToFill" />
+                </Border.Background>
+            </Border>
+
+            <Image Source="/Images/Me.png" Margin="69,22,69,-4" Grid.ColumnSpan="2" Grid.Column="1"/>
+            <Image Source="/Images/Name.png" Margin="264,-8,-92,52" Grid.Column="1" Grid.ColumnSpan="2"/>
+            <Image Source="/Images/C#.png" Margin="40,63,50,204" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-0.13"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+            <Image Source="/Images/Contact.png" Margin="2,343,82,-111" Grid.Column="1"/>
+
+            <Border Background="#FD8A8A" CornerRadius="0 50 0 30" Margin="7,80,0,0">
+                <DockPanel>
+                    <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="50 -40 0 0">
+                        <Ellipse>
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Images/Profile.png"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Border>
+
+                    <Separator Margin="20 35" DockPanel.Dock="Top" Height="2" Background="#FFFFFF"/>
+
+                    <Canvas DockPanel.Dock="Top" Height="119">
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnMain_Click" Height="30" Canvas.Top="-117" Canvas.Left="10" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="หน้าแรก" FontFamily="Tahoma Bold" Width="66"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnCart_Click" Height="30" Canvas.Top="-41" Canvas.Left="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="GlassWine" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="ตะกร้าสินค้า" FontFamily="Tahoma Bold" Width="104"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnFavorites_Click" Height="30" Canvas.Left="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153" Canvas.Top="-2">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Heart" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="รายการโปรด" FontFamily="Tahoma Bold" Width="104"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnOrganizer_Click" Height="30" Canvas.Top="40" Canvas.Left="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="BottleWineOutline" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="จัดการสินค้า" FontFamily="Tahoma Bold" Width="104"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="btnAdminMenu" Style="{StaticResource ResourceKey=menuButton}" Height="30" Canvas.Top="79" Click="BtnAdminMenu_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="146" Canvas.Left="10" >
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Toolbox" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="สำหรับ Admin" FontFamily="Tahoma Bold" Width="93"/>
+                            </StackPanel>
+                        </Button>
+
+                        <StackPanel x:Name="AdminSubMenuContainer" Background="White" Visibility="Collapsed" Margin="0,0,0,0" HorizontalAlignment="Stretch">
+                            <Button Content="Dashboard Member" Click="BtnDashboardMember_Click" Height="40" Margin="10,5,10,0"/>
+                            <Button Content="Dashboard Sales" Click="BtnDashboardSales_Click" Height="40" Margin="10,0,10,5"/>
+                            <Button Content="Confirm Orders" Click="BtnConfirmOrders_Click" Height="40" Margin="10,-5,10,10"/>
+                        </StackPanel>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnProfile_Click" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="9" Width="137" Canvas.Top="-79">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Account" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="ข้อมูลส่วนตัว" FontFamily="Tahoma Bold" Width="83"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnAboutus_Click" Height="30" Canvas.Top="123" Canvas.Left="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Creation" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="เกี่ยวกับเรา" FontFamily="Tahoma Bold" Width="104"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnCloss_Click" Height="30" Canvas.Top="167" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="8">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="ออกจากระบบ" FontFamily="Tahoma Bold" Width="83"/>
+                            </StackPanel>
+                        </Button>
+                    </Canvas>
+                </DockPanel>
+            </Border>
+            <TextBlock Text="EZDrink" Foreground="White" FontSize="22" FontWeight="DemiBold" TextAlignment="Center" Margin="56,121,55,348"/>
+            <TextBlock Text="About Us" Foreground="#db3f6c" FontSize="40" FontWeight="ExtraBold" Margin="217,22,212,428" TextAlignment="Center" Grid.Column="1" Width="183" Grid.ColumnSpan="2"/>
+            <TextBlock FontSize="20" Opacity="0.7" FontWeight="ExtraBlack" Margin="187,80,187,370" TextAlignment="Center" Foreground="Black" Grid.Column="1" Width="238" Grid.ColumnSpan="2"><Run Text="EZTicket Ticket major in "/><LineBreak/><Run Text="COMED KKU"/></TextBlock>
+            <Image Source="/Images/close.png"  MouseUp="Image_MouseUp" Style="{StaticResource imgClose}" Grid.Column="2" Margin="0,13,13,0"/>
+            <Border Background="Transparent" Cursor="Hand" MouseUp="btnBack_MouseUp" Height="40" Width="40" CornerRadius="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13,13,0,0">
+                <Image Source="/Images/Back.png" Height="30" Width="30" Margin="5,5,5,5"/>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

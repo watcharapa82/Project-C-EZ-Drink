@@ -1,0 +1,212 @@
+﻿<Window x:Class="EZTicketProject.ProductManagement"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EZTicketProject"
+        mc:Ignorable="d"
+        Title="ProductManagement" Height="500" Width="800" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+
+    <Border Background="White" CornerRadius="30" MouseDown="Bordor_MouseDown" MouseLeftButtonDown="Bordor_MouseLeftButtonDown">
+        <Grid Margin="-7,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="195"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+
+            <Border Background="#FD8A8A" CornerRadius="0 50 0 30" Margin="7,80,0,0">
+                <DockPanel>
+                    <Border Width="80" Height="80" Padding="3" Background="White" CornerRadius="100" DockPanel.Dock="Top" HorizontalAlignment="Left" Margin="50 -40 0 0">
+                        <Ellipse>
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="/Images/Profile.png"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Border>
+
+                    <Separator Margin="20 35" DockPanel.Dock="Top" Height="2" Background="#FFFFFF"/>
+
+                    <Canvas DockPanel.Dock="Top" Height="119">
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnMain_Click" Height="30" Canvas.Top="-117" Canvas.Left="10" HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="HomeVariant" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="หน้าแรก" FontFamily="Tahoma Bold" Width="66"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnCart_Click" Height="30" Canvas.Top="-41" Canvas.Left="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="GlassWine" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="ตะกร้าสินค้า" FontFamily="Tahoma Bold" Width="104"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnFavorites_Click" Height="30" Canvas.Left="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153" Canvas.Top="-2">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Heart" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="รายการโปรด" FontFamily="Tahoma Bold" Width="104"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnOrganizer_Click" Height="30" Canvas.Top="40" Canvas.Left="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="153">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="BottleWineOutline" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="จัดการสินค้า" FontFamily="Tahoma Bold" Width="104"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button x:Name="btnAdminMenu" Style="{StaticResource ResourceKey=menuButton}" Height="30" Canvas.Top="79" Click="BtnAdminMenu_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="146" Canvas.Left="10" >
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Toolbox" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="สำหรับ Admin" FontFamily="Tahoma Bold" Width="93"/>
+                            </StackPanel>
+                        </Button>
+
+                        <StackPanel x:Name="AdminSubMenuContainer" Background="White" Visibility="Collapsed" Margin="0,0,0,0" HorizontalAlignment="Stretch">
+                            <Button Content="Dashboard Member" Click="BtnDashboardMember_Click" Height="40" Margin="10,5,10,0"/>
+                            <Button Content="Dashboard Sales" Click="BtnDashboardSales_Click" Height="40" Margin="10,0,10,5"/>
+                            <Button Content="Confirm Orders" Click="BtnConfirmOrders_Click" Height="40" Margin="10,-5,10,10"/>
+                        </StackPanel>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnProfile_Click" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="9" Width="137" Canvas.Top="-79">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Account" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="ข้อมูลส่วนตัว" FontFamily="Tahoma Bold" Width="83"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnAboutus_Click" Height="30" Canvas.Top="123" Canvas.Left="9" HorizontalAlignment="Left" VerticalAlignment="Top" Width="152">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Creation" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="เกี่ยวกับเรา" FontFamily="Tahoma Bold" Width="104"/>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Style="{StaticResource ResourceKey=menuButton}" Click="BtnCloss_Click" Height="30" Canvas.Top="167" HorizontalAlignment="Left" VerticalAlignment="Top" Canvas.Left="8">
+                            <StackPanel Orientation="Horizontal">
+                                <Icon:PackIconMaterial Kind="Logout" Style="{StaticResource menuButtonIcon}" />
+                                <TextBlock Text="ออกจากระบบ" FontFamily="Tahoma Bold" Width="83"/>
+                            </StackPanel>
+                        </Button>
+                    </Canvas>
+                </DockPanel>
+            </Border>
+            <TextBlock Text="EZDrink" Foreground="White" FontSize="22" FontWeight="DemiBold" DockPanel.Dock="Top" TextAlignment="Center" Margin="56,121,55,348"/>
+
+            <Border Grid.Column="1" Background="White" CornerRadius="0 30 10 0" Margin="0,0,0,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="0,80,0,0" RenderTransformOrigin="0.438,0.594">
+                    <StackPanel Margin="10,0,0,30" Height="799" Width="553">
+                        <Grid Width="457" Height="350">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="132"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto" MinHeight="48.96"/>
+                                <RowDefinition Height="0"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0" Text="ชื่อสินค้า :" Style="{StaticResource normalText2}" Margin="10,12,10,14"/>
+                            <TextBox Grid.Column="1" Grid.Row="0" Style="{StaticResource HintStyle}" 
+                         x:Name="txtProductName" Tag="เช่น Sangsom, Regency" Margin="10,8,10,7"/>
+
+                            <TextBlock Grid.Row="1" Text="หมวดหมู่ :" Style="{StaticResource normalText2}" Margin="10,12,10,14"/>
+                            <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" Margin="10,5,10,5">
+                                <ComboBox x:Name="cmbCategory" Width="180" Height="30" Margin="0,0,5,0"/>
+                                <Button Content="+ เพิ่ม" Click="BtnAddCategory_Click" Width="60" Height="30" Background="#FD8A8A" Foreground="White"/>
+                            </StackPanel>
+
+                            <TextBlock Grid.Row="2" Text="ราคา :" Style="{StaticResource normalText2}" VerticalAlignment="Center" Margin="10,0,0,0" Height="24"/>
+                            <TextBox x:Name="txtPrice" Grid.Column="1" Grid.Row="2" Margin="5,8,5,7"
+                                     Style="{StaticResource HintStyle}" Tag="เช่น 250"
+                                     PreviewTextInput="NumericOnly"
+                                     LostFocus="TxtPrice_LostFocus"/>
+
+                            <TextBlock Grid.Row="3" Text="จำนวนสินค้า :" Style="{StaticResource normalText2}" VerticalAlignment="Center" Margin="10,0,0,0" Height="23"/>
+                            <TextBox x:Name="txtStock" Grid.Column="1" Grid.Row="3" Margin="5,8,5,7"
+                                     Style="{StaticResource HintStyle}" Tag="เช่น 50"
+                                     PreviewTextInput="NumericOnly"
+                                     LostFocus="TxtStock_LostFocus"/>
+                            <TextBlock Grid.Row="4" Text="รูปสินค้า :" Style="{StaticResource normalText2}" Margin="10,27,10,14"/>
+                            <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal" Margin="5,5,10,5">
+                                <Border BorderBrush="#CCC" BorderThickness="1" CornerRadius="5" Margin="10,0,0,0">
+                                    <Image x:Name="imgPreview" Width="89" Height="90" Stretch="UniformToFill" />
+                                </Border>
+                                <Button Content="เลือกรูป" Width="80" Height="30" Margin="20" Background="#FD8A8A" Foreground="White" Click="BtnSelectImage_Click"/>
+                            </StackPanel>
+
+                            <Button Grid.Row="5" Content="เพิ่มสินค้า" Click="BtnAddProduct_Click" Background="#4CAF50" Foreground="White" Margin="48,14,0,10" HorizontalAlignment="Left" Width="150" Grid.ColumnSpan="2"/>
+                            <Button Grid.Row="5" Content="บันทึกการแก้ไข" Click="BtnSaveEdit_Click" Background="#FFA500" Foreground="White" Margin="128,14,0,10" HorizontalAlignment="Left" Width="150" Grid.Column="1"/>
+                        </Grid>
+
+                        <Separator Margin="0,5"/>
+
+                        <TextBlock Text="รายการสินค้าทั้งหมด" FontWeight="Bold" FontSize="18" Margin="0,10" Width="558"/>
+                        <DataGrid x:Name="dgProducts" AutoGenerateColumns="False" Height="382" 
+                      IsReadOnly="True" CanUserAddRows="False" Margin="0,10,0,0">
+
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" Binding="{Binding Id}"  Width="50"/>
+                                <DataGridTemplateColumn Header="รูปสินค้า" Width="100">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Image Source="{Binding ImagePath}" Width="80" Height="80" Stretch="UniformToFill"/>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Header="ชื่อสินค้า" Binding="{Binding ProductName}" Width="150"/>
+                                <DataGridTextColumn Header="หมวดหมู่" Binding="{Binding Category}" Width="120"/>
+                                <DataGridTextColumn Header="ราคา" Binding="{Binding Price, StringFormat={}{0:N2}}" Width="100"/>
+                                <DataGridTextColumn Header="จำนวน" Binding="{Binding Stock, StringFormat={}{0:N0}}" Width="80"/>
+                                <DataGridTemplateColumn Header="การจัดการ" Width="200">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                <Button Content="แก้ไข" Click="BtnEditProduct_Click" Margin="5" Width="70"/>
+                                                <Button Content="ลบ" Click="BtnDeleteProduct_Click" Margin="5" Width="70" 
+                                            Background="#FF6347" Foreground="White"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+            <TextBlock Text="การจัดการสินค้าและสต็อก" FontSize="30" FontWeight="Bold" Foreground="#FD8A8A" HorizontalAlignment="Center" Margin="0,13,0,452" Height="35" Grid.Column="1"/>
+            <TextBlock Text="(Inventory Management)" FontSize="20" FontWeight="SemiBold" Foreground="#FD8A8A" HorizontalAlignment="Center" Margin="0,48,0,425" Grid.Column="1"/>
+            <Image Source="/Images/close.png"  MouseUp="Image_MouseUp" Style="{StaticResource imgClose}" Grid.Column="1" Margin="0,13,13,0"/>
+            <Border Background="Transparent" Cursor="Hand" MouseUp="btnBack_MouseUp" Height="40" Width="40" CornerRadius="5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="18,9,0,0">
+                <Image Source="/Images/Back.png" Height="30" Width="30" Margin="5,5,5,5"/>
+            </Border>
+            <Grid Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="65*"/>
+                    <ColumnDefinition Width="204*"/>
+
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+            </Grid>
+
+        </Grid>
+    </Border>
+</Window>
